@@ -8,10 +8,10 @@ export async function loging(req:Request, res: Response){
     const {usename,pass} =req.body;
     console.log(usename,pass);
 
-    const [pagar] = await conn.query(`CALL sp_loging('${usename}','${pass}');`);
+    const [user] = await conn.query(`CALL sp_loging('${usename}','${pass}');`);
 
-    const resultado = Object.values(JSON.parse(JSON.stringify(pagar))[0]);
-    console.log(pagar);
+    const resultado = Object.values(JSON.parse(JSON.stringify(user))[0]);
+    console.log(user);
     return res.json(resultado);
     
 }

@@ -19,9 +19,9 @@ function postCreateUser(req, res) {
         const conn = yield database_1.default;
         const { usename, email, pass } = req.body;
         console.log(usename, email, pass);
-        const [pagar] = yield conn.query(`CALL sp_createUser('${usename}','${email}','${pass}');`);
-        const resultado = Object.values(JSON.parse(JSON.stringify(pagar))[0]);
-        console.log(pagar);
+        const [user] = yield conn.query(`CALL sp_createUser('${usename}','${email}','${pass}');`);
+        const resultado = Object.values(JSON.parse(JSON.stringify(user))[0]);
+        console.log(user);
         return res.json(resultado);
     });
 }

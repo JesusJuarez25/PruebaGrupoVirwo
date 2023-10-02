@@ -14,13 +14,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getusuarios = void 0;
 const database_1 = __importDefault(require("../database"));
-function getusuarios(req, res) {
-    return __awaiter(this, void 0, void 0, function* () {
-        const conn = yield database_1.default;
-        const [paises] = yield conn.query(`CALL prueba();`);
-        const resultado = Object.values(JSON.parse(JSON.stringify(paises))[0]);
-        //console.log(paises);
-        return res.json(resultado);
-    });
-}
+const getusuarios = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const conn = yield database_1.default;
+    const [paises] = yield conn.query(`CALL prueba();`);
+    const resultado = Object.values(JSON.parse(JSON.stringify(paises))[0]);
+    //console.log(paises);
+    return res.json(resultado);
+});
 exports.getusuarios = getusuarios;

@@ -2,10 +2,10 @@ import express, { Application } from "express";
 import morgan from "morgan";
 import cors from "cors";
 
+//rutas de las api
 import loging from './routes/logingR';
 import postCreateUser from './routes/createUserR';
-import getusuarios from './routes/pruebaR';
-import indexRoutes from './routes/indexRoutes';
+
 
 class Server {
     public app: Application;
@@ -26,12 +26,10 @@ class Server {
         this.app.use(express.urlencoded({ extended: false }));
     }
 
-    //metodo para definir rutas
+    //metodo para llamar las rutas de las api
     routes(): void {
-        this.app.use(indexRoutes);
-        this.app.use('api/login', loging);
-        this.app.use('api/create', postCreateUser);
-        this.app.use('api/prueba', getusuarios);
+        this.app.use(loging);
+        this.app.use(postCreateUser);
     }
 
     //metodo para iniciar el servidor

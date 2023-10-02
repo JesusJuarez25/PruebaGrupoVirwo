@@ -1,0 +1,40 @@
+<div class="fodo">
+    <div>
+        <div class="container text-center">
+            <div class="row align-items-start">
+                <div class="col">
+                    <h2>My News Feed</h2>
+                    
+                </div>
+                <div class="col-5">
+                    <button class="btn btn-primary" (click)="logout()">LogOut</button>
+                </div>                
+            </div>                                                 
+        </div>
+        <div class="content m-5">
+            <div class="serch ">
+                <input type="search w-75" [(ngModel)]="searchText" placeholder="search">
+            </div>
+            <div class="news mt-3 row">
+                <div *ngFor="let new of new | filter:searchText" class="col-4">
+                    <div class="cont-new">
+                        <div class="imgNew">
+                            <img src="{{new.urlToImage}}" alt="news">
+                        </div>
+                        <div class="con">
+                            <div class="tittle-">
+                                <h4>{{new.title}}</h4>
+                            </div>
+                            <div class="autor">
+                                <h5>{{new.author}}</h5>
+                            </div>
+                            <div class="new">
+                                <p>{{new.description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
